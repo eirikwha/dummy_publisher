@@ -1,0 +1,15 @@
+<launch>
+    <!-- Default arguments -->
+    <arg name="pcd_data_folder" default="/home/eirik/Desktop/dummy_test/" />
+    <param name="pointcloud2_topic" value ="hdr_pointcloud"/>
+
+    <arg name="pose_stamped_topic" default="rand_pose_stamped" />
+    <arg name="pose_topic" default ="rand_pose"/>
+
+    <!-- PCD publisher node -->
+    <node name="dummy_pointcloud_publisher" pkg="dummy_publisher" type="dummy_pointcloud_publisher"
+          args = "$(arg pcd_data_folder)" output="screen"/>,
+
+    <node name="dummy_pose_publisher" pkg="dummy_publisher" type="dummy_pose_publisher"
+          args = "$(arg pose_stamped_topic) $(arg pose_topic)"/>
+</launch>
